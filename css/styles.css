@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Barre de navigation */
+nav {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Logo DomIoT */
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Menu de navigation */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    color: #ff4d4d;
+}
+
+/* Style pour le lien actif dans la navigation */
+.nav-links a.active-link {
+    color: #ff4d4d;
+}
+
+/* Animation des sections */
+section {
+    padding: 120px 5%;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    position: relative;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section.inactive {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Fix for mobile devices */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 15px;
+    }
+}
+
+/* Content styling */
+.full-page {
+    width: 100%;
+}
+
+.content {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+/* Icon styling */
+.icon {
+    width: 60px;
+    height: 60px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.icon.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.icon.hide {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Couleurs alternées pour les sections */
+section:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+section:nth-child(even) {
+    background-color: #ffffff;
+}
