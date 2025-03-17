@@ -59,6 +59,16 @@ nav .logo {
     color: #ff4d4d;
 }
 
+.flag-icon {
+    width: 30px;
+    height: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .lang-link:hover .flag-icon {
+    opacity: 0.7;
+  }
+
 /* Animation des sections */
 section {
     padding: 120px 5%;
