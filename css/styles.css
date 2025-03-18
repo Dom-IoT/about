@@ -149,3 +149,36 @@ section:nth-child(odd) {
 section:nth-child(even) {
     background-color: #ffffff;
 }
+
+.team,
+.encadrants {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%; /* Assure que la liste occupe toute la largeur */
+    text-align: center;
+}
+
+.team li,
+.encadrants li {
+    display: inline-block;
+}
+
+.team a,
+.encadrants a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.team a:hover,
+.encadrants a:hover {
+    color: #007bff;
+    transform: scale(2); /* Effet de grossissement au survol */
+}
