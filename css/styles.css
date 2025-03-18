@@ -156,10 +156,10 @@ section:nth-child(even) {
     padding: 0;
     display: flex;
     justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement si nécessaire */
+    align-items: center; /* Alignement vertical */
     flex-wrap: wrap;
     gap: 20px;
-    width: 100%; /* Assure que la liste occupe toute la largeur */
+    width: 100%;
     text-align: center;
 }
 
@@ -174,11 +174,12 @@ section:nth-child(even) {
     font-size: 20px;
     color: #333;
     font-weight: bold;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    display: inline-block; /* Ajout pour éviter tout problème de transformation */
 }
 
 .team a:hover,
 .encadrants a:hover {
     color: #007bff;
-    transform: scale(2); /* Effet de grossissement au survol */
+    transform: scale(1.1); 
 }
