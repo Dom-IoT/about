@@ -150,6 +150,61 @@ section:nth-child(even) {
     background-color: #ffffff;
 }
 
+
+/* For the functionality part */
+
+.description {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Centre horizontalement */
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: justify;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.card {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 300px;
+}
+
+
+/* For the team part */
+
+
 .team,
 .encadrants {
     list-style: none;
