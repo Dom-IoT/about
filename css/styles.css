@@ -162,6 +162,17 @@ section:nth-child(even) {
     color: #555;
 }
 
+.arrow-container {
+    display: flex;
+    align-items: center;
+}
+
+.right-arrow {
+    height: 2em; /* Même hauteur que le texte */
+    margin-right: 10px; /* Espace entre la flèche et le texte */
+}
+
+
 .cards {
     margin-bottom: 30 px;
     display: flex;
