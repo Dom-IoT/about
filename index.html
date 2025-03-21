@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DomIoT</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -45,44 +46,32 @@
     
     <section id="notreplateforme" class="full-page">
         <h1>Notre plateforme</h1>
-        <div class="content">
-            <div class="icon"></div>
-            <p>
-                L’IoT est extrêmement utile dans le cadre de l’aide à domicile de personnes dépendantes car elle permet un suivi continu des données de santé à distance ou être un support à l’autonomie. Un système de rappel pour la prise de médicaments avec un pilulier connecté en est un exemple classique.
-            </p>
-        </div>
-        <div class="content">
-            <div class="icon"></div>
-            <p>
-                Ainsi, le projet DomIoT consiste à développer une plateforme d’intégration de services IoT répondant aux problématiques de maintien à domicile.
-            </p>
-        </div>
-        <div class="content">
-            <div class="icon"></div>
-            <p>
-                Cette plateforme centralise l'ensemble des outils et capteurs nécessaire à un maintien à domicile optimal, ce qui permet une réelle facilitation de la vie de la personne aidée, mais aussi des personnes aidantes.
-            </p>
-        </div>
-        <div class="content">
-            <div class="icon"></div>
-            <p>
-                Notre plateforme se base sur Home Assistant, un système de gestion domotique, que nous avons modifié afin de l'orienter vers de l'aide à la personne. 
-            </p>
-            <p>
-                Nos travaux se sont aussi concentrés sur la facilitation d'ajout d'appareils connectés et leur gestion centralisée.
-            </p>
-        </div>
-
-        <div class="content">
-            <div class="icon"></div>
-            <p>
-                L'interface de notre plateforme s'adapte en fonction de qui vous êtes : personne aidée, famille, personnel soignant, administrateur.
-            </p>
-            <p>
-                Chaque utilisateur a accès aux fonctions de la plateforme nécessaires, sans empiéter sur les prérogatives des autres.  Cette différenciation permet d'assurer une utilisation simple et sécurisée, en mettant à disposition uniquement les informations et les actions pertinentes pour chaque profil.
-            </p>
-
-        </div>
+        <section class="container">
+            <div class="card">
+                <div class="iconP"><i class="fas fa-heartbeat"></i></div>
+                <p>L’IoT est extrêmement utile dans l’aide à domicile des personnes dépendantes, permettant un suivi continu des données de santé et un support à l’autonomie. Un exemple classique est le pilulier connecté pour la prise de médicaments.</p>
+            </div>
+    
+            <div class="card">
+                <div class="iconP"><i class="fas fa-home"></i></div>
+                <p>Le projet DomIoT vise à développer une plateforme intégrant des services IoT pour le maintien à domicile.</p>
+            </div>
+    
+            <div class="card">
+                <div class="iconP"><i class="fas fa-network-wired"></i></div>
+                <p>Cette plateforme centralise les outils et capteurs nécessaires, facilitant la vie des personnes aidées et de leurs aidants.</p>
+            </div>
+    
+            <div class="card">
+                <div class="iconP"><i class="fas fa-laptop-house"></i></div>
+                <p>Notre plateforme repose sur Home Assistant, modifié pour s’adapter à l’aide à la personne. Nous avons aussi simplifié l’ajout et la gestion d’appareils connectés.</p>
+            </div>
+    
+            <div class="card">
+                <div class="iconP"><i class="fas fa-users"></i></div>
+                <p>L’interface s’adapte aux profils des utilisateurs : personnes aidées, familles, soignants, administrateurs. Chacun accède aux fonctionnalités adaptées, assurant une utilisation simple et sécurisée.</p>
+            </div>
+        </section>
 
         <h1>Nos fonctionnalités</h1>
         <h2>Authentification</h2>
@@ -97,19 +86,42 @@
             <img class="right-arrow" src="./assets/right-arrow.svg" alt="Flèche">
             <p class="description">Facilite le rangement et la localisation des objets pour les personnes atteintes de maladies neurodégénératives grâce à une technologie intuitive</p>
         </div>
-            <div class="cards">
-                <div class="card">Permet de localiser rapidement un objet grâce à des LEDs et une interface vocale. L’utilisateur peut demander vocalement où se trouve un objet, et une LED s’allume pour indiquer sa position.</div>
-                <div class="card">Chaque objet est équipé d’une étiquette RFID permettant de s’assurer qu’il est bien rangé à sa place</div>
-                <div class="card">L’aidant peut enregistrer dans la base de données où ranger chaque objet et poser les étiquettes RFID correspondantes.</div>            
+            <div class="container">
+                <div class="card">
+                    <div class="iconP"><i class="fa-solid fa-lightbulb"></i></div>
+                    <p>Permet de localiser rapidement un objet grâce à des LEDs et une interface vocale. L’utilisateur peut demander vocalement où se trouve un objet, et une LED s’allume pour indiquer sa position.</p>
+                </div>
+                <div class="card">
+                    <div class="iconP"><i class="fa-solid fa-tags"></i></div>
+                    Chaque objet est équipé d’une étiquette RFID permettant de s’assurer qu’il est bien rangé à sa place
+                </div>
+                <div class="card">
+                    <div class="iconP"><i class="fa-solid fa-clipboard-list"></i></div>
+                    L’aidant peut enregistrer dans la base de données où ranger chaque objet et poser les étiquettes RFID correspondantes.
+                </div>            
             </div>
 
         <h2>Cas d'usage en cours d'ajout : l'emploi du temps connecté</h2>
         
             <p class="description">De la même manière que précédemment, ce cas d'usage est déjà implanté dans notre plateforme.</p>
-            <div class="cards">
-                <div class="card">L’aidant peut créer, modifier ou supprimer des événements pour l’aidé.</div>
-                <div class="card">Notification et rappel des événements pour l’aidé via une lecture audio par Home Assistant.</div>
-                <div class="card">L’aidé peut indiquer qu’un événement est terminé (ou non), permettant un suivi par l’aidant.</div>
+            <div class="container">
+
+
+                <div class="card">
+                    <div class="iconP"><i class="fa-solid fa-calendar-plus"></i></div>
+                    <p>L’aidant peut créer, modifier ou supprimer des événements pour l’aidé.</p>
+                </div>
+
+
+                <div class="card">
+                    <div class="iconP"><i class="fa-solid fa-bell"></i></div>
+                    <p>Notification et rappel des événements pour l’aidé via une lecture audio par Home Assistant.</p>
+                </div>
+
+                <div class="card">
+                    <div class="iconP"><i class="fa-solid fa-check-circle"></i></div>
+                    <p>L’aidé peut indiquer qu’un événement est terminé (ou non), permettant un suivi par l’aidant.</p>
+                </div>
             </div>
 
 

@@ -52,8 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
         });
+
+
     }, { 
-        threshold: 0.2,    // Déclenche quand 20% de la section est visible
+        threshold: 0.1,    // Déclenche quand 10% de la section est visible
         rootMargin: "-10% 0px" // Ajuste légèrement le seuil de déclenchement
     });
     
