@@ -73,8 +73,8 @@ nav .logo {
 
 /* Animation des sections */
 section {
-    padding: 120px 5%;
-    min-height: 100vh;
+    padding: 50px 5%;
+    min-height: 50vh;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
