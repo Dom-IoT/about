@@ -121,7 +121,7 @@ h1,
 h2,
 h3 {
     margin-bottom: 30px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* Icon styling */
@@ -163,7 +163,7 @@ section:nth-child(even) {
     align-items: center;
     padding: 20px;
     /* max-width: 800px; */
-    margin: auto;
+    margin: 1px;
 }
 
 .card {
@@ -202,6 +202,33 @@ section:nth-child(even) {
 
 .iconP:hover {
     transform: scale(1.1);
+}
+
+.image-utilisateurs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre l'image et le texte */
+    text-align: center; /* Centre le texte */
+    margin: 1px auto; /* Centre la section sur la page */
+    width: fit-content; /* Ajuste la taille au contenu */
+}
+
+.image-utilisateurs-container img {
+    width: 70%; /* Réduit la taille de l’image à 70% */
+    border: 3px solid #ccc; /* Ajoute un encadrement gris */
+    border-radius: 10px; /* Arrondit légèrement les bords */
+    padding: 5px; /* Ajoute un léger espace à l’intérieur de l’encadrement */
+    transition: transform 0.3s ease-in-out; /* Animation fluide */
+}
+
+.image-utilisateurs-container img:hover {
+    transform: scale(1.01); /* Effet de zoom au survol */
+}
+
+.image-utilisateurs-container p {
+    color: gray; /* Texte en gris */
+    font-size: 16px;
+    margin-top: 20px; /* Espacement entre l'image et le texte */
 }
 
 
