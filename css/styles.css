@@ -183,6 +183,7 @@ section:nth-child(even) {
     display: flex;
     align-items: center;
     text-align: justify;
+    font-size: 1.2em;
     gap: 15px;
     margin-bottom: 20px;
     width: 100%;
