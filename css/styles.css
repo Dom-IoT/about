@@ -93,7 +93,7 @@ section.inactive {
 
 section:last-of-type {
     min-height: 85vh;
-    padding-bottom: 500vh; /* Ajoute de l'espace en bas pour permettre le défilement */
+    /* padding-bottom: 20vh; Ajoute de l'espace en bas pour permettre le défilement */
 }
 
 /* Fix for mobile devices */
