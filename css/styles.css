@@ -129,6 +129,10 @@ h3 {
     margin-top: 20px;
 }
 
+h1 {
+    text-align: center;
+}
+
 /* Icon styling */
 .icon {
     width: 60px;
@@ -178,6 +182,7 @@ section:nth-child(even) {
     padding: 20px;
     display: flex;
     align-items: center;
+    text-align: justify;
     gap: 15px;
     margin-bottom: 20px;
     width: 100%;
