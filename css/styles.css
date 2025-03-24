@@ -91,6 +91,11 @@ section.inactive {
     transform: translateY(50px);
 }
 
+section:last-of-type {
+    min-height: 85vh;
+    /* padding-bottom: 20vh; Ajoute de l'espace en bas pour permettre le défilement */
+}
+
 /* Fix for mobile devices */
 @media (max-width: 768px) {
     nav {
