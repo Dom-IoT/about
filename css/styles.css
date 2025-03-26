@@ -355,3 +355,10 @@ section:nth-child(even) {
     color: #007bff;
     transform: scale(1.1); 
 }
+
+.end-of-page {
+    margin-top: 100px;
+    text-align: center;
+    color: #555;
+    
+}
