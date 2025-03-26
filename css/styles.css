@@ -92,8 +92,8 @@ section.inactive {
 }
 
 section:last-of-type {
-    min-height: 85vh;
-    /* padding-bottom: 20vh; Ajoute de l'espace en bas pour permettre le défilement */
+    min-height: 120vh;
+    /*padding-bottom: 20vh; Ajoute de l'espace en bas pour permettre le défilement */
 }
 
 /* Fix for mobile devices */
@@ -230,6 +230,7 @@ section:nth-child(even) {
     border-radius: 10px; /* Arrondit légèrement les bords */
     padding: 5px; /* Ajoute un léger espace à l’intérieur de l’encadrement */
     transition: transform 0.3s ease-in-out; /* Animation fluide */
+    margin-top: 20px;
 }
 
 .image-utilisateurs-container img:hover {
