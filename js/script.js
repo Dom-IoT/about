@@ -6,9 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Défilement fluide lors du clic sur un lien du menu
     document.querySelectorAll("nav a").forEach(anchor => {
         anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+            const targetId = this.getAttribute("href");
+
+            // Vérifie si le lien est interne (ancre) ou externe (page HTML)
+            if (targetId.startsWith("#")) {
+                e.preventDefault();
+                document.getElementById(targetId.substring(1)).scrollIntoView({ behavior: "smooth" });
+            }
         });
     });
     
