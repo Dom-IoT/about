@@ -134,34 +134,13 @@ h1 {
     font-size: 2em;
 }
 
-h2 a {
+/* h2 a {
     text-decoration: none; 
     color: inherit; 
     cursor: pointer;
     position: relative;
     z-index: 10;
-}
-/* Icon styling */
-.icon {
-    width: 60px;
-    height: 60px;
-    background-color: #ff4d4d;
-    border-radius: 50%;
-    flex-shrink: 0;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.icon.show {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.icon.hide {
-    opacity: 0;
-    transform: scale(0.8);
-}
+} */
 
 /* Couleurs alternées pour les sections */
 section:nth-child(odd) {
@@ -202,6 +181,14 @@ section:nth-child(even) {
 
 .card:hover {
     transform: translateY(-2px);
+}
+
+.card a {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 
