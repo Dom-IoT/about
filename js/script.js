@@ -1,169 +1,148 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Sélection des sections et icônes
+    // Sélection des éléments essentiels
     const sections = document.querySelectorAll("section");
-    const icons = document.querySelectorAll(".icon");
-    
-    // Défilement fluide lors du clic sur un lien du menu
-    document.querySelectorAll("nav a").forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            const targetId = this.getAttribute("href");
+    const navLinks = document.querySelectorAll("nav a");
 
-            // Vérifie si le lien est interne (ancre) ou externe (page HTML)
-            if (targetId.startsWith("#")) {
-                e.preventDefault();
-                document.getElementById(targetId.substring(1)).scrollIntoView({ behavior: "smooth" });
-            }
-        });
-    });
-    
-    // Observer les sections pour les faire apparaître et disparaître en scrollant
-    const sectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const sectionId = entry.target.id;
-            const correspondingNavLink = document.querySelector(`nav a[href="#${sectionId}"]`);
-            
-            // Si la section est visible
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-                entry.target.classList.remove("inactive");
+    // Fonction de défilement fluide
+    function smoothScroll(targetId) {
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ 
+                behavior: "smooth" 
+            });
+        }
+    }
+
+    // Gestionnaire de navigation
+    function setupNavigation() {
+        navLinks.forEach(anchor => {
+            anchor.addEventListener("click", function(e) {
+                const targetId = this.getAttribute("href");
                 
-                // Ajouter la classe active au lien de navigation correspondant
-                if (correspondingNavLink) {
-                    // Retirer la classe active de tous les liens
-                    document.querySelectorAll('nav a').forEach(link => {
-                        link.classList.remove('active-link');
-                    });
-                    // Ajouter la classe active au lien correspondant
-                    correspondingNavLink.classList.add('active-link');
+                // Vérifie si le lien est une ancre interne
+                if (targetId.startsWith("#")) {
+                    e.preventDefault();
+                    smoothScroll(targetId);
                 }
-                
-                // Activer les icônes de cette section
-                const sectionIcons = entry.target.querySelectorAll(".icon");
-                sectionIcons.forEach(icon => {
-                    icon.classList.add("show");
-                    icon.classList.remove("hide");
-                });
-            } else {
-                // Si la section n'est plus visible
-                entry.target.classList.remove("active");
-                entry.target.classList.add("inactive");
-                
-                // Désactiver les icônes de cette section
-                const sectionIcons = entry.target.querySelectorAll(".icon");
-                sectionIcons.forEach(icon => {
-                    icon.classList.remove("show");
-                    icon.classList.add("hide");
-                });
-            }
+            });
         });
-    }, { 
-        threshold: 0.1,     // Déclenche quand 10% de la section est visible
-        rootMargin: "-10% 0px" // Ajuste légèrement le seuil de déclenchement
-    });
-    
-    // Observer spécial pour la dernière section avec des paramètres plus sensibles
-    const lastSectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const sectionId = entry.target.id;
-            const correspondingNavLink = document.querySelector(`nav a[href="#${sectionId}"]`);
-            
-            // Si la section est visible
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-                entry.target.classList.remove("inactive");
-                
-                // Ajouter la classe active au lien de navigation correspondant
-                if (correspondingNavLink) {
-                    // Retirer la classe active de tous les liens
-                    document.querySelectorAll('nav a').forEach(link => {
-                        link.classList.remove('active-link');
+    }
+
+    // Configuration de l'Intersection Observer
+    function setupSectionObserver() {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const sectionId = entry.target.id;
+                const correspondingNavLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+                const sectionIcons = entry.target.querySelectorAll(".icon");
+
+                // Gestion de la visibilité et des classes
+                if (entry.isIntersecting) {
+                    // Désactiver tous les liens et sections
+                    navLinks.forEach(link => link.classList.remove('active-link'));
+                    sections.forEach(sec => {
+                        sec.classList.remove("active");
+                        sec.classList.add("inactive");
                     });
-                    // Ajouter la classe active au lien correspondant
-                    correspondingNavLink.classList.add('active-link');
+
+                    // Activer la section courante
+                    entry.target.classList.add("active");
+                    entry.target.classList.remove("inactive");
+
+                    // Activer le lien de navigation correspondant
+                    if (correspondingNavLink) {
+                        correspondingNavLink.classList.add('active-link');
+                    }
+
+                    // Gestion des icônes
+                    sectionIcons.forEach(icon => {
+                        icon.classList.add("show");
+                        icon.classList.remove("hide");
+                    });
                 }
-                
-                // Activer les icônes de cette section
-                const sectionIcons = entry.target.querySelectorAll(".icon");
-                sectionIcons.forEach(icon => {
-                    icon.classList.add("show");
-                    icon.classList.remove("hide");
-                });
-            } else {
-                // Si la section n'est plus visible
-                entry.target.classList.remove("active");
-                entry.target.classList.add("inactive");
-                
-                // Désactiver les icônes de cette section
-                const sectionIcons = entry.target.querySelectorAll(".icon");
-                sectionIcons.forEach(icon => {
-                    icon.classList.remove("show");
-                    icon.classList.add("hide");
-                });
-            }
+            });
+        }, { 
+            threshold: [0.2, 0.5],  // Déclenchement à 20% et 50% de visibilité
+            rootMargin: "-10% 0px"  // Marge légèrement négative
         });
-    }, { 
-        threshold: 0.05,    // Seuil plus bas pour la dernière section
-        rootMargin: "0% 0px" // Pas de marge négative
-    });
-    
-    // Observer toutes les sections sauf la dernière avec l'observer standard
-    sections.forEach((section, index) => {
-        if (index < sections.length - 1) {
+
+        // Observer toutes les sections
+        sections.forEach(section => {
             sectionObserver.observe(section);
-        } else {
-            // Observer spécial pour la dernière section
-            lastSectionObserver.observe(section);
-        }
-    });
-    
-    // Activer automatiquement la première section au chargement
-    setTimeout(() => {
-        if (sections[0]) {
-            sections[0].classList.add("active");
-            
-            // Activer le premier lien de navigation
-            const firstSectionId = sections[0].id;
+        });
+    }
+
+    // Activation automatique de la première section
+    function activateFirstSection() {
+        if (sections.length > 0) {
+            const firstSection = sections[0];
+            const firstSectionId = firstSection.id;
             const firstNavLink = document.querySelector(`nav a[href="#${firstSectionId}"]`);
-            if (firstNavLink) {
-                firstNavLink.classList.add('active-link');
-            }
-            
-            // Activer les icônes de la première section
-            const firstSectionIcons = sections[0].querySelectorAll(".icon");
-            firstSectionIcons.forEach(icon => {
-                icon.classList.add("show");
-            });
-        }
-    }, 100);
-    
-    // Backup pour s'assurer que la dernière section s'anime en fin de page
-    window.addEventListener('scroll', () => {
-        const lastSection = sections[sections.length - 1];
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        
-        // Si on est proche de la fin de la page (à 90% du défilement possible)
-        if ((scrollTop + windowHeight) > (documentHeight * 0.9)) {
-            lastSection.classList.add("active");
-            lastSection.classList.remove("inactive");
-            
-            // Activer le lien de navigation correspondant à la dernière section
-            const lastSectionId = lastSection.id;
-            const lastNavLink = document.querySelector(`nav a[href="#${lastSectionId}"]`);
-            if (lastNavLink) {
-                document.querySelectorAll('nav a').forEach(link => {
-                    link.classList.remove('active-link');
+
+            setTimeout(() => {
+                firstSection.classList.add("active");
+                firstSection.classList.remove("inactive");
+
+                if (firstNavLink) {
+                    firstNavLink.classList.add('active-link');
+                }
+
+                // Activer les icônes de la première section
+                const firstSectionIcons = firstSection.querySelectorAll(".icon");
+                firstSectionIcons.forEach(icon => {
+                    icon.classList.add("show");
+                    icon.classList.remove("hide");
                 });
-                lastNavLink.classList.add('active-link');
-            }
-            
-            // Activer les icônes de la dernière section
-            const lastSectionIcons = lastSection.querySelectorAll(".icon");
-            lastSectionIcons.forEach(icon => {
-                icon.classList.add("show");
-                icon.classList.remove("hide");
-            });
+            }, 100);
         }
-    });
+    }
+
+    // Gestion des événements de fin de page
+    function setupScrollEndHandler() {
+        window.addEventListener('scroll', () => {
+            const lastSection = sections[sections.length - 1];
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            // Détection de fin de page (90% du défilement)
+            if (scrollPosition >= documentHeight * 0.9) {
+                // Désactiver tous les liens et sections
+                navLinks.forEach(link => link.classList.remove('active-link'));
+                sections.forEach(sec => {
+                    sec.classList.remove("active");
+                    sec.classList.add("inactive");
+                });
+
+                // Activer la dernière section
+                lastSection.classList.add("active");
+                lastSection.classList.remove("inactive");
+
+                // Activer le lien de navigation de la dernière section
+                const lastSectionId = lastSection.id;
+                const lastNavLink = document.querySelector(`nav a[href="#${lastSectionId}"]`);
+                
+                if (lastNavLink) {
+                    lastNavLink.classList.add('active-link');
+                }
+
+                // Activer les icônes de la dernière section
+                const lastSectionIcons = lastSection.querySelectorAll(".icon");
+                lastSectionIcons.forEach(icon => {
+                    icon.classList.add("show");
+                    icon.classList.remove("hide");
+                });
+            }
+        });
+    }
+
+    // Initialisation de toutes les fonctionnalités
+    function init() {
+        setupNavigation();
+        setupSectionObserver();
+        activateFirstSection();
+        setupScrollEndHandler();
+    }
+
+    // Démarrage du script
+    init();
 });
