@@ -134,6 +134,13 @@ h1 {
     font-size: 2em;
 }
 
+h2 a {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
 /* Icon styling */
 .icon {
     width: 60px;
@@ -216,34 +223,48 @@ section:nth-child(even) {
     transform: scale(1.1);
 }
 
-.image-utilisateurs-container {
+/* Styles communs aux containers */
+.image-utilisateurs-container,
+.image-grandma-cabinet-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre l'image et le texte */
-    text-align: center; /* Centre le texte */
-    margin: 1px auto; /* Centre la section sur la page */
-    width: fit-content; /* Ajuste la taille au contenu */
+    align-items: center;
+    text-align: center;
+    margin: 1px auto;
+    width: fit-content;
 }
 
-.image-utilisateurs-container img {
-    width: 70%; /* Réduit la taille de l’image à 70% */
-    border: 3px solid #ccc; /* Ajoute un encadrement gris */
-    border-radius: 10px; /* Arrondit légèrement les bords */
-    padding: 5px; /* Ajoute un léger espace à l’intérieur de l’encadrement */
-    transition: transform 0.3s ease-in-out; /* Animation fluide */
+/* Styles communs aux images */
+.image-utilisateurs-container img,
+.image-grandma-cabinet-container img {
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
     margin-top: 20px;
 }
 
-.image-utilisateurs-container img:hover {
-    transform: scale(1.01); /* Effet de zoom au survol */
+
+.image-utilisateurs-container img:hover,
+.image-grandma-cabinet-container img:hover {
+    transform: scale(1.01);
 }
+
 
 .image-utilisateurs-container p {
-    color: gray; /* Texte en gris */
+    color: gray;
     font-size: 16px;
-    margin-top: 20px; /* Espacement entre l'image et le texte */
+    margin-top: 20px;
 }
 
+/* Largeur spécifique pour chaque image */
+.image-utilisateurs-container img {
+    width: 70%;
+}
+
+.image-grandma-cabinet-container img {
+    width: 120%;
+}
 
 /* For the functionality part */
 
