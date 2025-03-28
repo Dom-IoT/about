@@ -93,7 +93,6 @@ section.inactive {
 
 section:last-of-type {
     min-height: 120vh;
-    /*padding-bottom: 20vh; Ajoute de l'espace en bas pour permettre le défilement */
 }
 
 /* Fix for mobile devices */
@@ -268,15 +267,15 @@ section:nth-child(even) {
 .image-edt-interfaces-container {
     display: flex; /* Aligne les images horizontalement */
     justify-content: center; /* Centre le tout sur la page */
-    gap: 40px; /* Espacement entre les images */
+    gap: 40px;
     margin: 20px auto; /* Centre la section sur la page */
 }
 
 .image-item {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre l'image et le texte */
-    text-align: center; /* Centre le texte */
+    align-items: center; 
+    text-align: center; 
     width: fit-content; /* Ajuste la taille au contenu */
 }
 
@@ -287,7 +286,7 @@ section:nth-child(even) {
 }
 
 .image-item img:hover {
-    transform: scale(1.01); /* Effet de zoom au survol */
+    transform: scale(1.01);
 }
 
 .image-item p {
